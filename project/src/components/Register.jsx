@@ -100,7 +100,7 @@ const Register = () => {
       color: 'black',
     },
     input: {
-      width: '99%',
+      width: '100%',
       padding: '10px 10px 10px 40px',
       border: '1px solid #ddd',
       borderRadius: '5px',

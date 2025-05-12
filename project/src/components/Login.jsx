@@ -11,7 +11,6 @@ const Login = () => {
     console.log('Login submitted:', { username, password });
   };
 
-  // Styles en tant qu'objets JavaScript
   const styles = {
     container: {
       display: 'flex',

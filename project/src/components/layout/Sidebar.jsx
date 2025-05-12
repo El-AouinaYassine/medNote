@@ -58,7 +58,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
           <div className="sidebar-user">
             <div className="user-avatar">DR</div>
             <div className="user-info">
-              <div className="user-name">Dr. Ahmed</div>
+              <div className="user-name">Dr. Yassine</div>
               <div className="user-role">Doctor</div>
             </div>
           </div>
