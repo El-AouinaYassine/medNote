@@ -1,0 +1,107 @@
+.structured-data {
+  margin-top: var(--space-4);
+  background-color: var(--color-neutral-50);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-neutral-200);
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+.structured-data-header {
+  display: flex;
+  align-items: center;
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--color-neutral-200);
+  background-color: var(--color-neutral-100);
+  font-family: var(--font-family);
+}
+
+.structured-icon {
+  color: var(--color-primary-600);
+  margin-right: var(--space-2);
+}
+
+.structured-data-header h4 {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-neutral-800);
+}
+
+.structured-badge {
+  font-size: 0.75rem;
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-700);
+  padding: 0.125rem 0.5rem;
+  border-radius: 1rem;
+  margin-left: auto;
+}
+
+.structured-section {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.structured-section:last-child {
+  border-bottom: none;
+}
+
+.collapsible-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  margin-left: -var(--space-2);
+  padding: var(--space-1) 0;
+}
+
+.collapsible-icon {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--color-neutral-500);
+  margin-right: var(--space-1);
+  transition: transform var(--transition);
+}
+
+.collapsible-icon.expanded {
+  transform: rotate(90deg);
+}
+
+.structured-key {
+  color: var(--color-primary-700);
+  font-weight: 600;
+}
+
+.structured-value {
+  color: var(--color-neutral-800);
+  word-break: break-word;
+}
+
+.structured-content {
+  padding-left: var(--space-4);
+  margin-top: var(--space-1);
+  animation: expandContent 0.2s ease-out;
+}
+
+.structured-item {
+  margin-bottom: var(--space-1);
+  line-height: 1.4;
+}
+
+.structured-array-item::before {
+  content: '- ';
+  color: var(--color-neutral-500);
+}
+
+@keyframes expandContent {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
