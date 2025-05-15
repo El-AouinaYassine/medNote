@@ -34,7 +34,7 @@ function PatientList({ patients, onSelectPatient }) {
           >
             <div className="patient-card-left">
               <div className="patient-avatar">
-                {patient.name.split(' ').map(n => n[0]).join('')}
+                {patient.first_name.split(' ').map(n => n[0]).join('')}
               </div>
               <div className="patient-info">
                 <h3 className="patient-name">{patient.name}</h3>

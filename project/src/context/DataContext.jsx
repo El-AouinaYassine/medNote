@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect } from 'react';
-import { mockPatients } from '../data/mockPatients';
-import { mockNotes } from '../data/mockNotes';
+// import { mockPatients } from '../data/mockPatients';
+// import { mockNotes } from '../data/mockNotes';
 
 const DataContext = createContext();
 
@@ -14,8 +14,29 @@ export function DataProvider({ children }) {
     // Simulate API loading
     setLoading(true);
     setTimeout(() => {
-      setPatients(mockPatients);
-      setNotes(mockNotes);
+      fetch('http://127.0.0.1:8000/api/patients')
+      .then((res)=>{
+        return res.json()
+      })
+      .then((data)=>{
+        console.log(data)
+        setPatients(data)
+      })
+      .catch((err)=>{
+        console.error("error:",err)
+      })
+      // setTimeout(() => {
+      // fetch('http://127.0.0.1:8000/api/patients')
+      // .then((res)=>{
+      //   return res.json()
+      // })
+      // .then((data)=>{
+      //   console.log(data)
+      //   setPatients(data)
+      // })
+      // .catch((err)=>{
+      //   console.error("error:",err)
+      // })
       setLoading(false);
     }, 800);
   }, []);

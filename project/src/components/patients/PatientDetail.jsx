@@ -33,7 +33,7 @@ function PatientDetail({ patientId, onBack }) {
       <div className="patient-profile">
         <div className="patient-profile-header">
           <div className="patient-profile-avatar">
-            {patient.name.split(' ').map(n => n[0]).join('')}
+            {patient.first_name.split(' ').map(n => n[0]).join('')}
           </div>
           <div className="patient-profile-info">
             <h2 className="patient-profile-name">{patient.name}</h2>
@@ -57,7 +57,7 @@ function PatientDetail({ patientId, onBack }) {
             <div className="profile-card-content">
               <div className="profile-detail-item">
                 <span className="detail-label">Phone:</span>
-                <span className="detail-value">{patient.contact}</span>
+                <span className="detail-value">{patient.phone}</span>
               </div>
               <div className="profile-detail-item">
                 <span className="detail-label">Email:</span>
@@ -75,25 +75,31 @@ function PatientDetail({ patientId, onBack }) {
             <div className="profile-card-content">
               <div className="profile-detail-item">
                 <span className="detail-label">Insurance:</span>
-                <span className="detail-value">{patient.insuranceProvider} (#{patient.insuranceNumber})</span>
+                <span className="detail-value">{patient.insurance_provider} (#{patient.insurance_number})</span>
               </div>
               <div className="profile-detail-item">
                 <span className="detail-label">Medical History:</span>
                 <div className="detail-tags">
-                  {patient.medicalHistory.map((item, index) => (
-                    <span key={index} className="detail-tag">{item}</span>
+                  {(patient.medical_history || "")
+                    .split(',')
+                    .map(item => item.trim())
+                    .map((item, index) => (
+                      <span key={index} className="detail-tag">{item}</span>
                   ))}
                 </div>
               </div>
               <div className="profile-detail-item">
                 <span className="detail-label">Allergies:</span>
                 <div className="detail-tags">
-                  {patient.allergies.length > 0 ? (
-                    patient.allergies.map((item, index) => (
-                      <span key={index} className="detail-tag detail-tag-red">{item}</span>
-                    ))
+                  {(patient.allergies && patient.allergies.trim() !== "") ? (
+                    patient.allergies
+                      .split(',')
+                      .map(item => item.trim())
+                      .map((item, index) => (
+                        <span key={index} className="detail-tag detail-tag-red">{item}</span>
+                      ))
                   ) : (
-                    <span className="detail-text">No known allergies</span>
+                    <span className="detail-text">Aucune allergie connue</span>
                   )}
                 </div>
               </div>
